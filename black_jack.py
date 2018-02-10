@@ -36,17 +36,17 @@ class Deck(object):
 # hand class to calculate the value of the hand and display cards
 # make Hand subclass of deck?
 
-class Hand(Deck):
+#class Hand(Deck):
 
-    def __init__(self):
-        self.hand = [] 
-        self.value = 0
+#    def __init__(self):
+#        self.hand = [] 
+#        self.value = 0
 
-    def get_card(self):
-        selection = random.choice(Deck())
-        print selection
+#    def get_card(self):
+#        selection = random.choice(Deck())
+#        print selection
 
-    def get_value(self):
+#    def get_value(self):
 
 
 def main():
@@ -57,8 +57,8 @@ def main():
     deck = Deck()
     print deck
 
-    hand = Hand()
-    hand.get_card()
+#    hand = Hand()
+#    hand.get_card()
 
         
 main()
