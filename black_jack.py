@@ -5,14 +5,15 @@ ranks = ['A',1,2,3,4,5,6,7,8,9,10,'J','Q','K']
 
 class Card(object):
 
-    def __init__(self, suit, rank):
+    def __init__(self, rank, suit):
         self.suit = suit
         self.rank = rank
+        self.card = [self.rank, self.suit]  
 
     def __repr__(self):
                      
-        return '{} of {}'.format(self.rank, self.suit)
-		
+        return '{}'.format(self.card)
+
 class Deck(object):
        
     def __init__(self):
@@ -43,18 +44,18 @@ class Hand(Deck):
         print 'Your hand: {}'.format(self.hand)
 
 # get value of the randomly selected card and add it to the hand value
-# decompose self.hand to get self.rank out of it then loop out its value
-    def get_value(self):
-        print self.hand        
 
+    def get_value(self):
+        print self.hand
+        print self.hand[0]
 
 def main():
     
     card = Card('ace', 'hearts')
     print card
 
-    deck = Deck()
-    print deck
+#    deck = Deck()
+#    print deck
 
     hand = Hand()
     hand.get_card()
