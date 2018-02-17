@@ -3,8 +3,6 @@ import random
 suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
 ranks = ['A',1,2,3,4,5,6,7,8,9,10,'J','Q','K']
 
-# card class to create a card and get its value
-
 class Card(object):
 
     def __init__(self, suit, rank):
@@ -15,11 +13,8 @@ class Card(object):
                      
         return '{} of {}'.format(self.rank, self.suit)
 		
-# deck class to create the deck of cards and deal from it?
-
 class Deck(object):
        
-    # the below list of tuples potentially to be list of dictionaries
     def __init__(self):
         self.deck = []
         self.create_deck()
@@ -32,26 +27,29 @@ class Deck(object):
     def __repr__(self):
         return 'The current deck contains: {}'.format(self.deck)
 
-
 # hand class to calculate the value of the hand and display cards
-# make Hand subclass of deck?
+# make Hand subclass of deck
 
 class Hand(Deck):
 
     def __init__(self):
         Deck.__init__(self)
         self.hand = [] 
-        self.value = 0
+        self.hand_value = 0
 
     def get_card(self):
         selection = random.choice(self.deck)
-        print 'Your card is: {}'.format(selection)
+        self.hand.append(selection)
+        print 'Your hand: {}'.format(self.hand)
 
-#    def get_value(self):
+# get value of the randomly selected card and add it to the hand value
+# decompose self.hand to get self.rank out of it then loop out its value
+    def get_value(self):
+        print self.hand        
 
 
 def main():
-
+    
     card = Card('ace', 'hearts')
     print card
 
@@ -60,6 +58,7 @@ def main():
 
     hand = Hand()
     hand.get_card()
+    hand.get_value()
 
         
 main()
