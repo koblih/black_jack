@@ -12,7 +12,10 @@ class Card(object):
 
     def __repr__(self):
                      
-        return '{}'.format(self.card)
+        return str(self.card)
+
+    def card_value(self):
+        return self.card[0]
 
 class Deck(object):
        
@@ -53,6 +56,7 @@ def main():
     
     card = Card('ace', 'hearts')
     print card
+    print card.card_value()
 
 #    deck = Deck()
 #    print deck
