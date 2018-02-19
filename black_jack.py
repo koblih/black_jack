@@ -17,6 +17,10 @@ class Card(object):
     def card_value(self):
         return self.card[0]
 
+# __getitem__ to get the value
+    def __getitem__(self, key):
+        return self.card[key]
+
 class Deck(object):
        
     def __init__(self):
@@ -50,7 +54,7 @@ class Hand(Deck):
 
     def get_value(self):
         print self.hand
-        print self.hand[0]
+        print self.hand[0][1]
 
 def main():
     
