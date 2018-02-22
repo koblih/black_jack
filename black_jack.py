@@ -29,7 +29,7 @@ class Deck(object):
     def create_deck(self):       
         for suit in suits:
             for rank in ranks:
-                self.deck.append(Card(suit, rank))
+                self.deck.append(Card(rank, suit))
         
     def __repr__(self):
         return 'The current deck contains: {}'.format(self.deck)
@@ -44,20 +44,19 @@ class Hand(Deck):
         self.hand = [] 
         self.hand_value = 0
 
-# selecting a random card from the deck
-# TO BE DONE - make sure appended card has always index 0 
+# selecting a random card from the deck 
 
-#    def get_card(self):
-#        selection = random.choice(self.deck)
-#        self.hand.append(selection)
-#        print 'Your hand: {}'.format(self.hand)
+    def get_card(self):
+        selection = random.choice(self.deck)
+        self.hand.insert(0,selection)
+        print 'Your hand: {}'.format(self.hand)
 
 # testing of hand value loop
 
-    def test(self):
-        selection = Card(2, 'Hearts')
-        self.hand.append(selection)
-        print '{}'.format(self.hand)
+#    def test_card_value(self):
+#        selection = Card('A', 'Hearts')
+#        self.hand.append(selection)
+#        print '{}'.format(self.hand)
 
 # get value of the randomly selected card and add it to the hand value
 
@@ -68,21 +67,21 @@ class Hand(Deck):
         elif (card_value == 'J' or card_value == 'Q' or card_value == 'K'):
             self.hand_value += 10
         else:
-            self.hand_value += 1
+            if self.hand_value < 12:
+                self.hand_value += 10
+            else:
+                self.hand_value += 1
         print '{}'.format(self.hand_value)
 
 def main():
     
-#    card = Card('ace', 'hearts')
-#    print card
-
-#    deck = Deck()
-#    print deck
-
     hand = Hand()
-#    hand.get_card()
-    hand.test()
+    hand.get_card()
+#    hand.test_card_value()
     hand.get_value()
-
-        
+    hand.get_card()
+    hand.get_value()
+    hand.get_card()
+    hand.get_value()
+    
 main()
