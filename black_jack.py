@@ -51,6 +51,9 @@ class Hand(Deck):
         selection = random.choice(self.deck)
         self.hand.insert(0,selection)
         self.deck.remove(selection)
+
+# show hand
+    def show_hand(self):
         print 'Your hand: {}'.format(self.hand)
 
 # get value of the randomly selected card and add it to the hand value
@@ -66,10 +69,13 @@ class Hand(Deck):
                 self.hand_value += 10
             else:
                 self.hand_value += 1
-        print '{}'.format(self.hand_value)
-  
+ 
+# show the hand value
+    def show_hand_value(self):
+        print 'The value of your hand is: {}'.format(self.hand_value)
 
-# create two hands for each player (for now one pleayer against computer)
+
+# create one hand  for each player (for now one pleayer against computer)
 # maybe ask how many players will play?
 # ask the players to put the names in
 # after the names are in deal two cards to each player
@@ -81,14 +87,26 @@ class Hand(Deck):
 def main():
 
     deck = Deck()
+    print deck
 
-    while True:
-        no_of_players = raw_input('Please enter the number of players: ')
-        if not no_of_players.isdigit():
-            print 'Please enter the NUMBER of players! '
-            continue
-        else:
-            pass
+    hand_1 = Hand()
+    hand_1.get_card()
+    hand_1.get_card()
+    hand_1.show_hand()
+    hand_1.get_value()
+    hand_1.show_hand_value()
+
+#this is wrong
+    print deck
+
+
+#    while True:
+#        no_of_players = raw_input('Please enter the number of players: ')
+#        if not no_of_players.isdigit():
+#            print 'Please enter the NUMBER of players! '
+#            continue
+#        else:
+#            break
 
 
 
