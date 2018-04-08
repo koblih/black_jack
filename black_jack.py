@@ -88,7 +88,7 @@ def main():
             print 'Please enter the NUMBER of players! '
             continue
         else:
-            pass
+            break
 
 
 
